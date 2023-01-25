@@ -17,5 +17,3 @@ MongoDB 설치 및 실행
 npm install
 npm start
 ```
-
-Validator 추가 예정
