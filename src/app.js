@@ -1,17 +1,15 @@
-require('dotenv').config();
+require("dotenv").config();
 
 const express = require("express");
 const cors = require("cors");
-const dbConfig = require("./config/db.config")
-
+const dbConfig = require("./config/db.config");
 
 const app = express();
 const db = require("./models");
 const Role = db.role;
 
-
 const corsOptions = {
-    origin: "http://localhost:4000"
+    origin: "http://localhost:3000",
 };
 
 app.use(cors(corsOptions));
@@ -22,18 +20,16 @@ app.use(express.json());
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
 
-
-
 db.mongoose
     .connect(`mongodb://${dbConfig.HOST}:${dbConfig.PORT}/${dbConfig.DB}`, {
         useNewUrlParser: true,
-        useUnifiedTopology: true
+        useUnifiedTopology: true,
     })
     .then(() => {
         console.log("MongoDB 연결 성공");
         initial();
     })
-    .catch(err => {
+    .catch((err) => {
         console.error("MongoDB 연결 에러", err);
         process.exit();
     });
@@ -42,8 +38,8 @@ const initial = () => {
     Role.estimatedDocumentCount((err, count) => {
         if (!err && count === 0) {
             new Role({
-                name: "user"
-            }).save(err => {
+                name: "user",
+            }).save((err) => {
                 if (err) {
                     console.log("error", err);
                 }
@@ -52,8 +48,8 @@ const initial = () => {
             });
 
             new Role({
-                name: "admin"
-            }).save(err => {
+                name: "admin",
+            }).save((err) => {
                 if (err) {
                     console.log("error", err);
                 }
@@ -62,21 +58,15 @@ const initial = () => {
             });
         }
     });
-}
-
-
+};
 
 app.get("/", (req, res) => {
     res.json({ message: "Welcome to nodejs application." });
 });
-require('./routes/auth.routes')(app);
-require('./routes/user.routes')(app);
-
-
-
+require("./routes/auth.routes")(app);
+require("./routes/user.routes")(app);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
     console.log(`${PORT} 포트로 서버 연결됨`);
 });
-
