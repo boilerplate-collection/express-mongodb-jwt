@@ -91,7 +91,7 @@ exports.signin = (req, res) => {
             }
 
             const token = jwt.sign({ id: user.id }, config.secret, {
-                expiresIn: process.env.JWT_VALIDITY // 토큰만료시간, 24 시간
+                expiresIn: process.env.JWT_VALIDITY // 토큰만료시간
             });
 
             const authorities = [];
