@@ -75,7 +75,7 @@ require('./routes/user.routes')(app);
 
 
 
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
     console.log(`${PORT} 포트로 서버 연결됨`);
 });

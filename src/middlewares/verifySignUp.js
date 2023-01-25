@@ -41,7 +41,7 @@ checkRolesExisted = (req, res, next) => {
         for (let i = 0; i < req.body.roles.length; i++) {
             if (!ROLES.includes(req.body.roles[i])) {
                 res.status(400).send({
-                    message: `실패! ${req.body.roles[i]} 권한을 가지고 있지 않습니다!`
+                    message: `실패! ${req.body.roles[i]} 권한이 존재하지 않습니다!`
                 });
                 return;
             }
