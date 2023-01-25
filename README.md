@@ -7,3 +7,5 @@ DB_NAME
 JWTSECRET
 JWT_VALIDITY
 ```
+
+Validator 추가 예정
