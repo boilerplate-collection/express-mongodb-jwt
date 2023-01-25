@@ -44,7 +44,7 @@ isAdmin = (req, res, next) => {
                     }
                 }
 
-                res.status(403).send({ message: "관리자권한이 있는 사용자만 접근 가능합니다!" });
+                res.status(403).send({ message: "관리자 권한이 있는 사용자만 접근 가능합니다!" });
                 return;
             }
         );
