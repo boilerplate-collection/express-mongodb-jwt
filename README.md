@@ -8,4 +8,14 @@ JWTSECRET // JWTSECRET키
 JWT_VALIDITY // JWT토큰 만료시간
 ```
 
+실행방법
+```
+.env 생성 및 위에 적혀있는 값 세팅
+
+MongoDB 설치 및 실행
+
+npm install
+npm start
+```
+
 Validator 추가 예정
