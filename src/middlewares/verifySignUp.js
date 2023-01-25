@@ -3,30 +3,6 @@ const ROLES = db.ROLES;
 const User = db.user;
 
 
-checkinput = (req, res, next)=> {
-    const {username, email, password} = req.body;
-
-    if(!username){
-        res.status(400).send({ message: "username은 필수 입력 값입니다."})
-        return;
-    }
-
-    if(!password){
-        res.status(400).send({ message: "password는 필수 입력 값입니다."})
-        return;
-    }
-
-    const vaildCheck = email.indexOf('@');
-    if(email === undefined || email === null || vaildCheck=== -1){
-        res.status(400).send({ message: "올바른 이메일을 입력해주세요."})
-        return;
-    }
-
-
-
-    next();
-}
-
 checkDuplicateUsernameOrEmail = (req, res, next) => {
     // Username
     User.findOne({
