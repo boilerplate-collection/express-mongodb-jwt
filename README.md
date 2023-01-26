@@ -1,5 +1,5 @@
 삭제예정 
-그냥 Passport 쓰자..
+Passport의 중요성을 깨닫게 해줌
 
 .env
 ```
