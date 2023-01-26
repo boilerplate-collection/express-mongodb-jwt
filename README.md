@@ -1,5 +1,5 @@
 삭제예정 <br>
-Passport의 중요성을 깨닫게 해줌
+Passport의 소중함을 깨닫게 해줌
 
 .env
 ```
